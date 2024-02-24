@@ -20,6 +20,7 @@ class EditNoteViewBody extends StatelessWidget {
           height: 32,
         ),
         CustomTextField(
+          onSaved: (data) {},
           hintText: 'Title',
           onChanged: (data) {},
           maxLines: 1,
@@ -28,6 +29,7 @@ class EditNoteViewBody extends StatelessWidget {
           height: 16,
         ),
         CustomTextField(
+          onSaved: (data) {},
           hintText: 'Details',
           onChanged: (data) {},
           maxLines: 5,
