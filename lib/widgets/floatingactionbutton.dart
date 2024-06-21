@@ -9,8 +9,8 @@ class CustomFloatingActionButton extends StatelessWidget {
     return FloatingActionButton(
       shape: const CircleBorder(),
       backgroundColor: const Color(0xff52EEDA),
-      onPressed: () {
-        showBottomSheet(context);
+      onPressed: () async {
+        await showBottomSheet(context);
       },
       child: const Icon(
         Icons.add,

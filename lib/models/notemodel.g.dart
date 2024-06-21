@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_model.dart';
+part of 'notemodel.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
@@ -20,19 +20,22 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       title: fields[0] as String?,
       subtitle: fields[1] as String?,
       color: fields[2] as int?,
+      date: fields[3] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, NoteModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
       ..write(obj.subtitle)
       ..writeByte(2)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(3)
+      ..write(obj.date);
   }
 
   @override

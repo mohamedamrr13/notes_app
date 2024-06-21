@@ -18,6 +18,7 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Form(
+        autovalidateMode: autovalidateMode,
         key: formKey,
         child: Column(
           children: [
