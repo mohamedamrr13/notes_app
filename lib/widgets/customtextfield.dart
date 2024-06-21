@@ -16,31 +16,27 @@ class CustomTextField extends StatelessWidget {
   final Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: TextFormField(
-        validator: (value) {
-          if (value?.isEmpty ?? true) {
-            return 'Field is required';
-          } else {
-            return null;
-          }
-        },
-        onSaved: onSaved,
-        maxLines: maxLines,
-        onChanged: onChanged,
-        keyboardType: type,
-        decoration: InputDecoration(
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide:
-                    const BorderSide(color: Color(0xff52EEDA), width: 3)),
-            hintText: hintText,
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide:
-                    const BorderSide(color: Color(0xff52EEDA), width: 3))),
-      ),
+    return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'Field is required';
+        } else {
+          return null;
+        }
+      },
+      onSaved: onSaved,
+      maxLines: maxLines,
+      onChanged: onChanged,
+      keyboardType: type,
+      decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: Color(0xff52EEDA), width: 3)),
+          hintText: hintText,
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide:
+                  const BorderSide(color: Color(0xff52EEDA), width: 3))),
     );
   }
 }

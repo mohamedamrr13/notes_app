@@ -16,47 +16,53 @@ class _ModalBottomSheetState extends State<ModalBottomSheet> {
   final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Form(
-        autovalidateMode: autovalidateMode,
-        key: formKey,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 34,
-            ),
-            CustomTextField(
-              onSaved: (data) {
-                title = data;
-              },
-              hintText: "Title",
-              maxLines: 1,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomTextField(
-              type: TextInputType.text,
-              onSaved: (data) {
-                subTitle = data;
-              },
-              hintText: "Details",
-              maxLines: 6,
-            ),
-            const SizedBox(
-              height: 32,
-            ),
-            CustomButtom(onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-              }
-            }),
-            const SizedBox(
-              height: 16,
-            ),
-          ],
+    return Padding(
+      padding: EdgeInsets.only(
+          left: 16,
+          right: 16,
+          bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: SingleChildScrollView(
+        child: Form(
+          autovalidateMode: autovalidateMode,
+          key: formKey,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 34,
+              ),
+              CustomTextField(
+                onSaved: (data) {
+                  title = data;
+                },
+                hintText: "Title",
+                maxLines: 1,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              CustomTextField(
+                type: TextInputType.text,
+                onSaved: (data) {
+                  subTitle = data;
+                },
+                hintText: "Details",
+                maxLines: 6,
+              ),
+              const SizedBox(
+                height: 32,
+              ),
+              CustomButtom(onTap: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                }
+              }),
+              const SizedBox(
+                height: 16,
+              ),
+            ],
+          ),
         ),
       ),
     );
