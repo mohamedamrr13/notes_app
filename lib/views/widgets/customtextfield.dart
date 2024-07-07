@@ -7,7 +7,7 @@ class CustomTextField extends StatefulWidget {
     this.type,
     this.onChanged,
     this.maxLines,
-    required this.onSaved,
+    this.onSaved,
     this.validator,
   });
   final String hintText;

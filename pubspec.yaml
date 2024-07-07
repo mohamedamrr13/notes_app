@@ -28,8 +28,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_animate: ^4.5.0
   bloc: ^8.1.4
   cupertino_icons: ^1.0.6
+  date_format: ^2.0.7
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
@@ -68,9 +70,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Poppins
-      fonts:
-        - asset: lib/assets/fonts/Poppins-Regular.ttf
+      - family: Poppins
+        fonts:
+          - asset: lib/assets/fonts/Poppins-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

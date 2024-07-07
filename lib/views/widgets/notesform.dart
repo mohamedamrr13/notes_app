@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/cubits/addnotecubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/addnotecubit/addnotecubit.dart';
+import 'package:notes_app/cubits/addnotecubit/addnotestates.dart';
+import 'package:notes_app/helper/helper.dart';
 import 'package:notes_app/models/notemodel.dart';
-import 'package:notes_app/widgets/custombutton.dart';
-import 'package:notes_app/widgets/customtextfield.dart';
+import 'package:notes_app/views/widgets/colorslistview.dart';
+import 'package:notes_app/views/widgets/custombutton.dart';
+import 'package:notes_app/views/widgets/customtextfield.dart';
 
 class Notesform extends StatefulWidget {
   const Notesform({super.key});
@@ -15,6 +19,7 @@ class _NotesformState extends State<Notesform> {
   final GlobalKey<FormState> formKey = GlobalKey();
   String? title;
   String? subTitle;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -55,24 +60,34 @@ class _NotesformState extends State<Notesform> {
               subTitle = data;
             },
             hintText: "Details",
-            maxLines: 6,
           ),
+          const SizedBox(
+            height: 24,
+          ),
+          const ColorsListView(),
           const SizedBox(
             height: 32,
           ),
-          CustomButtom(onTap: () {
-            if (formKey.currentState!.validate()) {
-              formKey.currentState!.save();
-              NoteModel note = NoteModel(
-                  title: title,
-                  subtitle: subTitle,
-                  date: DateTime.now().toString(),
-                  color: Colors.blue.value);
-              AddNoteCubit().addNote(note);
-            } else {
-              AutovalidateMode.always;
-            }
-          }),
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButtom(
+                  isLoading: state is AddNoteLoading ? true : false,
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      NoteModel note = NoteModel(
+                          title: title!,
+                          subtitle: subTitle!,
+                          date: todayDate(),
+                          color: const Color(0xff156064).value);
+                      BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                    } else {
+                      AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  });
+            },
+          ),
           const SizedBox(
             height: 16,
           ),
