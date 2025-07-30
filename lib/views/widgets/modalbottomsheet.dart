@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/addnotecubit/addnotecubit.dart';
 import 'package:notes_app/cubits/addnotecubit/addnotestates.dart';
 import 'package:notes_app/cubits/notescubit/notescubit.dart';
-import 'package:notes_app/cubits/notescubit/notesstates.dart';
 
 import 'package:notes_app/views/widgets/notesform.dart';
 

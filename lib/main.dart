@@ -5,7 +5,6 @@ import 'package:notes_app/cubits/notescubit/notescubit.dart';
 import 'package:notes_app/helper/helper.dart';
 import 'package:notes_app/models/notemodel.dart';
 import 'package:notes_app/simpleblocobserver.dart';
-import 'package:notes_app/views/editnoteview.dart';
 import 'package:notes_app/views/noteview.dart';
 
 void main() async {
@@ -24,7 +23,11 @@ class NotesApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => NotesCubit(),
       child: MaterialApp(
-          theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            brightness: Brightness.dark,
+            fontFamily: "Poppins",
+          ),
           home: const NoteView()),
     );
   }

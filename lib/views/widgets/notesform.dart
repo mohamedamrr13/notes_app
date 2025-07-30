@@ -83,7 +83,6 @@ class _NotesformState extends State<Notesform> {
                       BlocProvider.of<AddNoteCubit>(context).addNote(note);
                     } else {
                       AutovalidateMode.always;
-                      setState(() {});
                     }
                   });
             },

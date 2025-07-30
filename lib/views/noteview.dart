@@ -10,6 +10,7 @@ class NoteView extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xff52EEDA),
         onPressed: () async {
           showModalBottomSheet(
               isScrollControlled: true,

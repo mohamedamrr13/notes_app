@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
 import 'package:notes_app/cubits/notescubit/notescubit.dart';
-import 'package:notes_app/cubits/notescubit/notesstates.dart';
-import 'package:notes_app/helper/helper.dart';
-import 'package:notes_app/models/notemodel.dart';
 import 'package:notes_app/views/widgets/customappbar.dart';
 import 'package:notes_app/views/widgets/noteslistview.dart';
 
@@ -29,9 +25,9 @@ class _NoteViewBodyState extends State<NoteViewBody> {
         const SizedBox(height: 60),
         CustomAppBar(
           onpressed: () {
-            BlocProvider.of<NotesCubit>(context).deleteNotes();
+            // BlocProvider.of<NotesCubit>(context).deleteNotes();
           },
-          iconData: Icons.delete,
+          iconData: Icons.search,
           title: 'Notes',
         ),
         const NotesListView()
